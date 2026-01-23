@@ -2,7 +2,7 @@
     <div class="container__elements">
         <article class="title__container">
             <h1>Productos</h1>
-            <button> <fa-icon class="icon add" [icon]="addIcon"></fa-icon> Agregar</button>
+            <button (click)="openModal()"> <fa-icon class="icon add" [icon]="addIcon"></fa-icon> Agregar</button>
         </article>
         <article class="table__container">
             <table>
@@ -53,4 +53,26 @@
         </article>
     </div>
 
+    <article class="form__modal__container" [class.active]="toggle">
+        <div class="form__container">
+            <form action="">
+                <div class="atributo__container">
+                    <label for="nombre">Nombre Del Producto:</label>
+                    <input type="text" name="nombre" placeholder="Introduce el nombre">
+                </div>
+                <div class="atributo__container">
+                    <label for="descripcion">Descripción: </label>
+                    <input type="text" name="descripcion" placeholder="Descripción del producto">
+                </div>
+                <div class="atributo__container">
+                    <label for="existencia">Existencia: </label>
+                    <input type="number" placeholder="Stock del producto">
+                </div>
+                <div class="opciones__container">
+                    <button type="button" class="btn cancel" (click)="openModal()">Cancelar</button>
+                    <button class="btn add">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </article>
 </main>

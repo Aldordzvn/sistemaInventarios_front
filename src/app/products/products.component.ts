@@ -12,4 +12,9 @@ export class ProductsComponent {
   addIcon = faPlus;
   editIcon = faPen;
   deleteIcon = faTrash;
+  toggle: boolean = false;
+
+  openModal(): void{
+    this.toggle = !this.toggle;
+  }
 }
