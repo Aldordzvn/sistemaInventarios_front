@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'normalize.css';
+
+:root{
+    --bg: #E6E3E3;
+    --textColor: #003632;
+    --border: #48ffda;
+    --primary: #8affe7;
+    --primarySelected: #12efc9;
+    --success: #58dbad;
+    --successSelected: #1b7f5c;
+    --cancel: #e29d9d;
+    --cancelSelected: #b13535;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 1.6rem;
+    color: var(--textColor);
+    background-color: var(--bg);
+}
