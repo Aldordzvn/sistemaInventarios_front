@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'normalize.css';
-
+@import './app/style/lato.css';
 :root{
     --bg: #E6E3E3;
     --textColor: #003632;
@@ -19,6 +19,7 @@ html{
 }
 
 body{
+    font-family: 'inter';
     font-size: 1.6rem;
     color: var(--textColor);
     background-color: var(--bg);
