@@ -1,0 +1,21 @@
+main{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--greyBorder);
+    padding: 0 2rem;
+}
+
+.container__elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+}
+
+.link{
+    color: var(--textColor);
+    font-size: 3.5rem;
+}

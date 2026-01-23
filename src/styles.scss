@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'normalize.css';
-
+@import './app/style/lato.css';
 :root{
     --bg: #E6E3E3;
     --textColor: #003632;
-    --border: #48ffda;
+    --greyBorder: #cecccc;
     --primary: #8affe7;
     --primarySelected: #12efc9;
     --success: #58dbad;
@@ -12,6 +12,7 @@
     --cancel: #e29d9d;
     --cancelSelected: #b13535;
 }
+    // --border: #48ffda;
 
 html{
     font-size: 62.5%;
@@ -19,6 +20,7 @@ html{
 }
 
 body{
+    font-family: 'inter';
     font-size: 1.6rem;
     color: var(--textColor);
     background-color: var(--bg);

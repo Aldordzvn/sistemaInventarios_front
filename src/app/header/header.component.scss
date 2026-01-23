@@ -1,0 +1,27 @@
+header {
+    width: 100%;
+    // background-color: blueviolet;
+    border-bottom: 2px solid var(--greyBorder);
+    padding: 1.3rem 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.btn {
+    font-size: 3rem;
+    cursor: pointer;
+
+    &.btnMode {
+        background-color: transparent;
+        border: none;
+    }
+}
