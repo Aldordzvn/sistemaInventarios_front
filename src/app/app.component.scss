@@ -7,7 +7,12 @@ main{
 .container__elements{
     display: flex;
     height: 100%;
+    width: 100%;
 }
 
 app-aside-menu{
+}
+
+app-products{
+    width: 100%;
 }
