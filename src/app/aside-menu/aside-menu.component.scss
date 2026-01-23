@@ -3,6 +3,8 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid var(--greyBorder);
+    padding: 0 2rem;
 }
 
 .container__elements{
