@@ -13,56 +13,35 @@
                     <th>Existencia</th>
                     <th class="opcTh">Opciones</th>
                 </tr>
+                @for (producto of datos$ | async ; track $index) {
                 <tr class="rowData">
-                    <td class="id">1</td>
-                    <td class="nombre">Playera</td>
-                    <td class="desc">AE azul cuello redondo</td>
-                    <td class="exis">1200</td>
+                    <td class="id"> {{producto.id}} </td>
+                    <td class="nombre"> {{producto.nombre}} </td>
+                    <td class="desc"> {{producto.descripcion}} </td>
+                    <td class="exis"> {{producto.existencia}} </td>
                     <td class="opc">
                         <div class="btns__container">
                             <button class="editBtn"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
-                            <button class="deleteBtn"> <fa-icon class="icon delete" [icon]="deleteIcon"></fa-icon></button>
+                            <button class="deleteBtn"> <fa-icon class="icon delete"
+                                    [icon]="deleteIcon"></fa-icon></button>
                         </div>
                     </td>
                 </tr>
-                <tr class="rowData">
-                    <td class="id">1</td>
-                    <td class="nombre">Playera</td>
-                    <td class="desc">AE azul cuello redondo</td>
-                    <td class="exis">1200</td>
-                    <td class="opc">
-                        <div class="btns__container">
-                            <button class="editBtn"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
-                            <button class="deleteBtn"> <fa-icon class="icon delete" [icon]="deleteIcon"></fa-icon></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="rowData">
-                    <td class="id">1</td>
-                    <td class="nombre">Playera</td>
-                    <td class="desc">AE azul cuello redondo</td>
-                    <td class="exis">1200</td>
-                    <td class="opc">
-                        <div class="btns__container">
-                            <button class="editBtn"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
-                            <button class="deleteBtn"> <fa-icon class="icon delete" [icon]="deleteIcon"></fa-icon></button>
-                        </div>
-                    </td>
-                </tr>
+                }
             </table>
         </article>
     </div>
 
     <article class="form__modal__container" [class.active]="toggle">
         <div class="form__container">
-            <form action="">
+            <form>
                 <div class="atributo__container">
                     <label for="nombre">Nombre Del Producto:</label>
                     <input type="text" name="nombre" placeholder="Introduce el nombre">
                 </div>
                 <div class="atributo__container">
                     <label for="descripcion">Descripción: </label>
-                    <input type="text" name="descripcion" placeholder="Descripción del producto">
+                    <input type="text" name="descripcion" placeholder="Descripción del producto" >
                 </div>
                 <div class="atributo__container">
                     <label for="existencia">Existencia: </label>
