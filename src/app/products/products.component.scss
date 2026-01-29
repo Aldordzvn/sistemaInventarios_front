@@ -153,6 +153,83 @@ form {
     }
 }
 
+// ----------------- Modal de eliminar -------------------------
+
+.delete__modal--container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(11, 11, 11, 0.78);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.3px);
+    -webkit-backdrop-filter: blur(11.3px);
+}
+
+.delete__container{
+    background-color: var(--bg);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 50rem;
+    height: 40rem;
+    border-radius: 4px;
+    .icon{
+        font-size: 13rem;
+    }
+
+    p{
+        font-size: 2.1rem;
+        font-weight: bold;
+    }
+}
+
+.btns__container--eliminar{
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    .btn{
+        padding: 1.3rem 2rem;
+        border-radius: 4px;
+        &.cancelar{
+            border: 1px solid var(--cancelSelected);
+            background-color: var(--cancel);
+            &:hover{
+                background-color: var(--cancelSelected);
+            }
+        }
+
+        &.eliminar{
+            border: 1px solid var(--successSelected);
+            background-color: var(--success);
+            &:hover{
+                background-color: var(--successSelected);
+            }
+        }
+        
+    }
+}
+
+// ---------------------- Errores --------------------------
+.errorSpan{
+    font-size: 1.4rem;
+    color: var(--cancelSelected);
+}
+
+.errorInput{
+    background-color: var(--cancel);
+    border: 1px solid var(--cancelSelected);
+    &input::placeholder{
+        color: var(--textColor);
+    }
+}
+
 .active{
     display: flex;
 }

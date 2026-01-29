@@ -14,39 +14,38 @@ export class ProductoService {
     this.obtenerDatos().subscribe();
   }
 
-  obtenerDatos() : Observable<Producto[]>{
+  obtenerDatos(): Observable<Producto[]> {
     return this.httpClient.get<Producto[]>(this.apiUrl).pipe(
       tap(res => this.datos$.next(res))
     );
-  }
+  };
 
-  addProductos(producto : Producto){
-    this.httpClient.post<Producto>(this.apiUrl, producto).pipe(
-      tap( () =>{
-        this.obtenerDatos().subscribe();
-      })
+  addProductos(producto: Producto): Observable<Producto[]> {
+    return this.httpClient.post<Producto>(this.apiUrl, producto).pipe(
+      switchMap(()=> this.obtenerDatos())
     );
   }
 
-  modificarProducto(id: number, producto:Producto){
+  modificarProducto(id: number, producto: Producto) : Observable<Producto[]> {
     let urlEdit = `${this.apiUrl}/${id}`;
-    this.httpClient.put(urlEdit, producto).pipe(
-      tap( () => {
-        this.obtenerDatos().subscribe();
-      })
+    return this.httpClient.put(urlEdit, producto).pipe(
+      switchMap(()=> this.obtenerDatos())
     );
   }
 
-  eliminarProductos(id:number){
+  eliminarProductos(id: number) : Observable<Producto[]> {
     let eliminarUrl = `${this.apiUrl}/${id}`;
-    this.httpClient.delete(this.apiUrl).pipe(
-      tap( ()=> {
-        this.obtenerDatos().subscribe();
-      })
+    return this.httpClient.delete(eliminarUrl).pipe(
+      switchMap(()=> this.obtenerDatos())
     );
   }
 
-  get getDatos(){
+  encontrarPorId(id: number) : Observable<Producto>{
+    let foundUrl = `${this.apiUrl}/${id}`;
+    return this.httpClient.get<Producto>(foundUrl);
+  }
+
+  get getDatos() {
     return this.datos$.asObservable();
   }
 

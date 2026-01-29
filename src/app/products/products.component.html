@@ -2,7 +2,7 @@
     <div class="container__elements">
         <article class="title__container">
             <h1>Productos</h1>
-            <button (click)="openModal()"> <fa-icon class="icon add" [icon]="addIcon"></fa-icon> Agregar</button>
+            <button (click)="toggleModal()"> <fa-icon class="icon add" [icon]="addIcon"></fa-icon> Agregar</button>
         </article>
         <article class="table__container">
             <table>
@@ -21,8 +21,8 @@
                     <td class="exis"> {{producto.existencia}} </td>
                     <td class="opc">
                         <div class="btns__container">
-                            <button class="editBtn"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
-                            <button class="deleteBtn"> <fa-icon class="icon delete"
+                            <button class="editBtn" (click)="openEditModal(producto.id!)"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
+                            <button class="deleteBtn" (click)="openDeleteModal(producto.id!)"> <fa-icon class="icon delete"
                                     [icon]="deleteIcon"></fa-icon></button>
                         </div>
                     </td>
@@ -34,24 +34,45 @@
 
     <article class="form__modal__container" [class.active]="toggle">
         <div class="form__container">
-            <form>
+            <form [formGroup]="productForm" (submit)="enviarDatos()">
                 <div class="atributo__container">
+                    
                     <label for="nombre">Nombre Del Producto:</label>
-                    <input type="text" name="nombre" placeholder="Introduce el nombre">
+                    @if(productForm.get('nombre')?.invalid && errorFlag){
+                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    }
+                    <input type="text" name="nombre" placeholder="Introduce el nombre" formControlName="nombre" [class.errorInput]="errorFlag">
                 </div>
                 <div class="atributo__container">
                     <label for="descripcion">Descripción: </label>
-                    <input type="text" name="descripcion" placeholder="Descripción del producto" >
+                    @if(productForm.get('descripcion')?.invalid && errorFlag){
+                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    }
+                    <input type="text" name="descripcion" placeholder="Descripción del producto" formControlName="descripcion" [class.errorInput]="errorFlag">
                 </div>
                 <div class="atributo__container">
                     <label for="existencia">Existencia: </label>
-                    <input type="number" placeholder="Stock del producto">
+                    @if(productForm.get('existencia')?.invalid && errorFlag){
+                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    }
+                    <input type="number" placeholder="Stock del producto" formControlName="existencia" [class.errorInput]="errorFlag">
                 </div>
                 <div class="opciones__container">
-                    <button type="button" class="btn cancel" (click)="openModal()">Cancelar</button>
+                    <button type="button" class="btn cancel" (click)="cancelOpcion()">Cancelar</button>
                     <button class="btn add">Enviar</button>
                 </div>
             </form>
+        </div>
+    </article>
+
+    <article class="delete__modal--container" [class.active]="toggleDelete">
+        <div class="delete__container">
+            <p>¿Seguro que quieres eliminar el producto?</p>
+            <fa-icon class="icon warning" [icon]="warningIcon"></fa-icon>
+            <div class="btns__container--eliminar">
+                <button class="btn cancelar" (click)="openDeleteModal(0)">Cancelar</button>
+                <button class="btn eliminar" (click)="eliminarProducto()">Eliminar</button>
+            </div>
         </div>
     </article>
 </main>
