@@ -1,1 +1,55 @@
-<p>about works!</p>
+<main>
+    <article>
+        <h1>Sobre el proyecto</h1>
+        <div class="text__container">
+            <p>
+                Este proyecto es un sistema de inventarios Full Stack que permite visualizar, crear, editar y
+                eliminar productos. Fue desarrollado con fines de portafolio, enfocado en aplicar buenas prácticas
+                de desarrollo de Front End como Back End.
+                <br><br>
+                El sistema permite llevar un control básico de productos simulando un flujo en aplicaciones
+                administrativas reales.
+            </p>
+            <div class="icons__container">
+                <fa-icon class="icon laptop" [icon]="laptopCode"></fa-icon>
+                <fa-icon class="icon java" [icon]="javaIcon"></fa-icon>
+                <fa-icon class="icon angular" [icon]="angularIcon"></fa-icon>
+                <fa-icon class="icon database" [icon]="dataBaseIcon"></fa-icon>
+                <fa-icon class="icon html" [icon]="htmlIcon"></fa-icon>
+                <fa-icon class="icon css" [icon]="sassIcon"></fa-icon>
+            </div>
+        </div>
+        <div class="banners__container">
+            <div class="tecnologias__container">
+                <div class="tec--head">
+                    <p>Tecnologías utilizadas:</p>
+                </div>
+                <ul>
+                    <li>JAVA 21 con Spring Boot 4</li>
+                    <li>Spring Data JPA + Hibernate</li>
+                    <li>MySQL</li>
+                    <li>Angular 19 (Standalone)</li>
+                    <li>RxJS (Manejo reactivo de estado)</li>
+                    <li>REST API</li>
+                </ul>
+            </div>
+            <div class="practicas__container">
+                <div class="prac--head">
+                    <p>Buenas Prácticas utilizadas:</p>
+                </div>
+                <ul>
+                    <li>Arquitectura por capas (Controller, Service, Repository)</li>
+                    <li>Uso de DTOs y validaciones con Bean Validation</li>
+                    <li>Manejo de estado reactivo en Angular con Observables (BehaviorSubject)</li>
+                    <li>Separación de responsabilidades entre componentes y servicios</li>
+                    <li>Validaciones tanto en Front End como en Back End</li>
+                    <li>Manejo de CORS y comunicación REST</li>
+                </ul>
+            </div>
+        </div>
+        <div class="socials__container">
+            <a href="#"><fa-icon class="icon" [icon]="gitHubIcon"></fa-icon></a>
+            <a href="#"><fa-icon class="icon" [icon]="linkedInIcon"></fa-icon></a>
+        </div>
+    </article>
+</main>
