@@ -1,28 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'normalize.css';
 @import './app/style/lato.css';
-:root{
-    --bg: #E6E3E3;
-    --textColor: #003632;
-    --greyBorder: #cecccc;
-    --primary: #8affe7;
-    --primarySelected: #12efc9;
-    --success: #58dbad;
-    --successSelected: #1b7f5c;
-    --cancel: #e29d9d;
-    --cancelSelected: #b13535;
-}
-    // --border: #48ffda;
 
-html{
+:root {
+    --bg: #E6E3E3;
+    --textColor: #202020;
+    --greyBorder: #b1aeae;
+    --primary: #8affe7;
+    --success: #74dfa2;
+    --successSelected: #052814;
+    --cancel: #FFABAB;
+    --cancelSelected: #520E0E;
+    --hoverText: #E6E3E3;
+    --hoverBtns: #424141;
+    --textError: #520E0E;
+    --evenTable: #d4d2d2;
+    --evenHover: #c9c6c6;
+    --hoverAdd:  #303136;
+    --warning: #F5A524;
+}
+
+// --border: #48ffda;
+
+.darkMode {
+    --bg: #121212;
+    --textColor: #E6E3E3;
+    --greyBorder: #3f3f3f;
+    --primary: #1D2E61;
+    --success: #74dfa2;
+    --successSelected: #052814;
+    --cancel: #FFABAB;
+    --cancelSelected: #520E0E;
+    --hoverText: #E6E3E3;
+    --hoverBtns: #B2B3BD;
+    --textError: #FFABAB;
+    --evenTable: #424141;
+    --evenHover: #5D5B5B;
+    --hoverAdd: #303136;
+    --warning: #F5A524;
+}
+
+html {
     font-size: 62.5%;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'inter';
     font-size: 1.6rem;
     color: var(--textColor);
     background-color: var(--bg);
 }
-

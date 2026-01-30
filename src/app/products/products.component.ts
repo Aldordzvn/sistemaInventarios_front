@@ -81,6 +81,7 @@ export class ProductsComponent {
       if(this.id > 0 && !this.productForm.dirty){
         console.log("No se modifico nada");
         this.toggleModal();
+        this.limpiarFormulario();
         return;
       }
 

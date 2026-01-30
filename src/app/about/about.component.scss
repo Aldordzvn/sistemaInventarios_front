@@ -95,6 +95,9 @@ ul{
     gap: 10rem;
     a{
         color: var(--textColor);
+        &:hover{
+            color: var(--hoverBtns);
+        }
     }
 
     .icon{

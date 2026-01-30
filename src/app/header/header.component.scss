@@ -23,10 +23,15 @@ h1 {
     &.btnMode {
         background-color: transparent;
         border: none;
+        color: var(--textColor)
+    }
+
+    &:hover {
+        color: var(--hoverBtns);
     }
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--textColor);
 }
