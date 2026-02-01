@@ -5,7 +5,16 @@
 }
 
 main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container__elements {
     padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .title__container {
@@ -24,7 +33,8 @@ main {
         gap: 0.6rem;
         text-transform: uppercase;
         color: var(--textColor);
-        &:hover{
+
+        &:hover {
             background-color: var(--hoverAdd);
             color: var(--hoverText);
         }
@@ -80,7 +90,8 @@ tr:hover {
         background-color: transparent;
         font-size: 1.8rem;
         color: var(--textColor);
-        &:hover{
+
+        &:hover {
             color: var(--hoverBtns);
         }
     }
@@ -90,6 +101,17 @@ tr:hover {
     white-space: nowrap;
     width: 7%;
     text-align: left;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: auto;
+    &::ng-deep{
+        &.ngx-pagination{
+            margin: 0;
+            padding: 0;
+        }
+    }
 }
 
 // ------------------------------- FORM Sección -------------------------------
@@ -149,6 +171,7 @@ form {
         &.cancel {
             background-color: var(--cancel);
             border: 1px solid var(--cancelSelected);
+
             &:hover {
                 background-color: var(--cancelSelected);
                 color: var(--hoverText);
@@ -158,6 +181,7 @@ form {
         &.add {
             background-color: var(--success);
             border: 1px solid var(--successSelected);
+
             &:hover {
                 background-color: var(--successSelected);
                 color: var(--hoverText);
@@ -168,7 +192,7 @@ form {
 
 // ----------------- Modal de eliminar -------------------------
 
-.delete__modal--container{
+.delete__modal--container {
     position: absolute;
     top: 0;
     left: 0;
@@ -184,7 +208,7 @@ form {
     -webkit-backdrop-filter: blur(11.3px);
 }
 
-.delete__container{
+.delete__container {
     background-color: var(--bg);
     display: flex;
     justify-content: space-around;
@@ -194,89 +218,96 @@ form {
     height: 40rem;
     border-radius: 4px;
     border: 1px solid var(--greyBorder);
-    .icon{
+
+    .icon {
         font-size: 13rem;
         color: var(--warning);
     }
 
-    p{
+    p {
         font-size: 2.1rem;
         font-weight: bold;
     }
 }
 
-.btns__container--eliminar{
+.btns__container--eliminar {
     display: flex;
     margin-bottom: 2rem;
     gap: 1.5rem;
-    .btn{
+
+    .btn {
         padding: 1.3rem 2rem;
         border-radius: 4px;
-        &.cancelar{
+
+        &.cancelar {
             border: 1px solid var(--cancelSelected);
             background-color: var(--cancel);
-            &:hover{
+
+            &:hover {
                 background-color: var(--cancelSelected);
                 color: var(--hoverText);
             }
         }
 
-        &.eliminar{
+        &.eliminar {
             border: 1px solid var(--successSelected);
             background-color: var(--success);
-            &:hover{
+
+            &:hover {
                 background-color: var(--successSelected);
                 color: var(--hoverText);
             }
         }
-        
+
     }
 }
 
 // ---------------------- Errores --------------------------
-.errorSpan{
+.errorSpan {
     font-size: 1.4rem;
     color: var(--textError);
 }
 
-.errorInput{
+.errorInput {
     background-color: var(--cancel);
     border: 1px solid var(--cancelSelected);
-    &input::placeholder{
+
+    &input::placeholder {
         color: var(--textColor);
     }
 }
 
-.active{
+.active {
     display: flex;
 }
 
-@include tablet{
-    .table__container{
+@include tablet {
+    .table__container {
         overflow-x: auto;
     }
 
-    table{
+    table {
         min-width: 65rem;
     }
 
-    h1{
+    h1 {
         font-size: clamp(2.5rem, 1.187rem + 2.622vw, 3.2rem);
     }
 
-    .desc{
+    .desc {
         overflow-x: auto;
     }
 
-    .delete__container{
+    .delete__container {
         width: clamp(46rem, 38.494rem + 14.981vw, 50rem);
     }
 }
 
-@include mobile{
-    .delete__container{
+@include mobile {
+    .delete__container {
         width: clamp(30rem, 1.556rem + 88.889vw, 46rem);
-        p{
+
+        p {
             text-align: center;
             font-size: clamp(1.8rem, 1.267rem + 1.667vw, 2.1rem);
         }

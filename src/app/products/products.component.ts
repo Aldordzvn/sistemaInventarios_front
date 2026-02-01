@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlus, faPen, faTrash, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Producto } from '../models/Producto.model';
 import { ProductoService } from '../service/productos/producto.service';
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-products',
-  imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
+  imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule, NgxPaginationModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -18,6 +19,7 @@ export class ProductsComponent {
   editIcon = faPen;
   deleteIcon = faTrash;
   warningIcon = faTriangleExclamation;
+  p: number = 1;
   id!: number;
   toggle: boolean = false;
   toggleDelete: boolean = false;

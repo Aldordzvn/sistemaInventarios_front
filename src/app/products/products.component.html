@@ -13,7 +13,8 @@
                     <th>Existencia</th>
                     <th class="opcTh">Opciones</th>
                 </tr>
-                @for (producto of datos$ | async ; track $index) {
+                @for (producto of (datos$ | async) ?? [] | paginate: { itemsPerPage: 10, currentPage: p } ; track
+                $index) {
                 <tr class="rowData">
                     <td class="id"> {{producto.id}} </td>
                     <td class="nombre"> {{producto.nombre}} </td>
@@ -21,41 +22,46 @@
                     <td class="exis"> {{producto.existencia}} </td>
                     <td class="opc">
                         <div class="btns__container">
-                            <button class="editBtn" (click)="openEditModal(producto.id!)"> <fa-icon class="icon edit" [icon]="editIcon"></fa-icon> </button>
-                            <button class="deleteBtn" (click)="openDeleteModal(producto.id!)"> <fa-icon class="icon delete"
-                                    [icon]="deleteIcon"></fa-icon></button>
+                            <button class="editBtn" (click)="openEditModal(producto.id!)"> <fa-icon class="icon edit"
+                                    [icon]="editIcon"></fa-icon> </button>
+                            <button class="deleteBtn" (click)="openDeleteModal(producto.id!)"> <fa-icon
+                                    class="icon delete" [icon]="deleteIcon"></fa-icon></button>
                         </div>
                     </td>
                 </tr>
                 }
             </table>
         </article>
+        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
     </div>
 
     <article class="form__modal__container" [class.active]="toggle">
         <div class="form__container">
             <form [formGroup]="productForm" (submit)="enviarDatos()">
                 <div class="atributo__container">
-                    
+
                     <label for="nombre">Nombre Del Producto:</label>
                     @if(productForm.get('nombre')?.invalid && errorFlag){
-                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
                     }
-                    <input type="text" name="nombre" placeholder="Introduce el nombre" formControlName="nombre" [class.errorInput]="errorFlag">
+                    <input type="text" name="nombre" placeholder="Introduce el nombre" formControlName="nombre"
+                        [class.errorInput]="errorFlag">
                 </div>
                 <div class="atributo__container">
                     <label for="descripcion">Descripción: </label>
                     @if(productForm.get('descripcion')?.invalid && errorFlag){
-                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
                     }
-                    <input type="text" name="descripcion" placeholder="Descripción del producto" formControlName="descripcion" [class.errorInput]="errorFlag">
+                    <input type="text" name="descripcion" placeholder="Descripción del producto"
+                        formControlName="descripcion" [class.errorInput]="errorFlag">
                 </div>
                 <div class="atributo__container">
                     <label for="existencia">Existencia: </label>
                     @if(productForm.get('existencia')?.invalid && errorFlag){
-                        <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
+                    <span class="errorSpan">Este campo es obligatorio, Ingrese el campo correctamente.</span>
                     }
-                    <input type="number" placeholder="Stock del producto" formControlName="existencia" [class.errorInput]="errorFlag">
+                    <input type="number" placeholder="Stock del producto" formControlName="existencia"
+                        [class.errorInput]="errorFlag">
                 </div>
                 <div class="opciones__container">
                     <button type="button" class="btn cancel" (click)="cancelOpcion()">Cancelar</button>
