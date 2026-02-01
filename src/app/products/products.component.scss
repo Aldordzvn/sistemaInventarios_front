@@ -1,3 +1,5 @@
+@import '../style/mixins';
+
 :host {
     width: 100%;
 }
@@ -247,4 +249,36 @@ form {
 
 .active{
     display: flex;
+}
+
+@include tablet{
+    .table__container{
+        overflow-x: auto;
+    }
+
+    table{
+        min-width: 65rem;
+    }
+
+    h1{
+        font-size: clamp(2.5rem, 1.187rem + 2.622vw, 3.2rem);
+    }
+
+    .desc{
+        overflow-x: auto;
+    }
+
+    .delete__container{
+        width: clamp(46rem, 38.494rem + 14.981vw, 50rem);
+    }
+}
+
+@include mobile{
+    .delete__container{
+        width: clamp(30rem, 1.556rem + 88.889vw, 46rem);
+        p{
+            text-align: center;
+            font-size: clamp(1.8rem, 1.267rem + 1.667vw, 2.1rem);
+        }
+    }
 }

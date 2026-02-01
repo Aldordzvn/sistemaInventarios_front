@@ -1,3 +1,5 @@
+@import '../style/mixins';
+
 header {
     width: 100%;
     // background-color: blueviolet;
@@ -14,6 +16,10 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
+}
+
+.btnMenu {
+    display: none;
 }
 
 .btn {
@@ -34,4 +40,164 @@ h1 {
 a {
     text-decoration: none;
     color: var(--textColor);
+}
+
+.container__mobile {
+    display: none;
+}
+
+@include tablet {
+    h1 {
+        font-size: clamp(2.5rem, 1.187rem + 2.622vw, 3.2rem);
+    }
+
+    .btnMenu {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+    }
+
+    .icon {
+        color: var(--textColor);
+
+        &:hover {
+            color: var(--hoverBtns);
+        }
+
+        &.menu,
+        &.moon {
+            font-size: clamp(2.5rem, 1.187rem + 2.622vw, 3.2rem);
+
+        }
+
+        &.products,
+        &.about {
+            font-size: clamp(3rem, 2.04rem + 1.916vw, 4rem);
+        }
+    }
+
+    .container__mobile {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: clamp(10rem, 0.618rem + 18.727vw, 15rem);
+        flex-direction: column;
+        align-items: center;
+        background: var(--greyBorder);
+        // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        // backdrop-filter: blur(11.3px);
+        // -webkit-backdrop-filter: blur(11.3px);
+
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        visibility: hidden;
+
+
+    }
+
+    .back__container {
+        width: 100%;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: transparent;
+        border: none;
+        padding-left: 1.5rem;
+    }
+
+    .options__container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        flex-direction: column;
+    }
+
+    .slideInLeft {
+        visibility: visible;
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes slideInLeft {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            visibility: visible;
+        }
+
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            visibility: visible;
+        }
+
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    .slideOutLeft {
+        visibility: visible;
+        -webkit-animation-name: slideOutLeft;
+        animation-name: slideOutLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes slideOutLeft {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        100% {
+            visibility: hidden;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes slideOutLeft {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        100% {
+            visibility: hidden;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
+
+}
+
+@include mobile {
+    h1 {
+        font-size: clamp(1.6rem, 0rem + 5vw, 2.5rem);
+    }
+
+
 }
